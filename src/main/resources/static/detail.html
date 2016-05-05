@@ -1,0 +1,111 @@
+<section class="content-header">
+	<h1>
+		Resto App <small>Menues</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="#/"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li><a href="#/">Menues</a></li>
+		<li class="active">Detail #{{id}}</li>
+	</ol>
+</section>
+
+<section class="content">
+
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title">Detail menu #{{id}}</h3>
+		</div>
+		<form role="form">
+		
+			<div class="box-body">
+				<div class="form-group">
+					<label for="nameInput">Name</label> <input type="text" class="form-control" id="nameInput"  ng-model="name" />
+				</div>
+				<div class="form-group">
+					<label for="priceInput">Price Amount</label> <input type="text" class="form-control" id="priceInput"  ng-model="price.amount" />
+				</div>
+				<div class="form-group">
+					<label for="priceAmtInput">Price Currency</label> <input type="text" class="form-control" id="priceAmtInput"  ng-model="price.currency" />
+				</div>
+				<div class="form-group">
+					
+					<div class="input-group date">
+						<label>From</label>
+						<div class="input-group date">
+							<input type="text" class="form-control pull-left" id="datepicker" uib-datepicker-popup ng-model="dateFromD" is-open="popup1.opened">
+							<div class="input-group-addon">
+								<a href="" ng-click="open1()">
+									<i class="fa fa-calendar"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="form-group">
+					<div class="input-group date">
+						<label>To</label>
+						<div class="input-group date">
+							<input type="text" class="form-control pull-left" id="datepicker" uib-datepicker-popup ng-model="dateToD" is-open="popup2.opened">
+							<div class="input-group-addon">
+								<a href="" ng-click="open2()">
+									<i class="fa fa-calendar"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+		
+				<div class="form-group">
+					<div class="input-group date">
+						<label>From</label>
+						<div class="input-group date">
+							<uib-timepicker ng-model="timeFrom"></uib-timepicker>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group date">
+						<label>To</label>
+						<div class="input-group date">
+							<uib-timepicker ng-model="timeTo"></uib-timepicker>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="input-group">
+						<label>Days</label>
+						 <div class="btn-group input-group">
+					        <label class="btn btn-primary" ng-model="daysT.sun" uib-btn-checkbox>Sunday</label>
+					        <label class="btn btn-primary" ng-model="daysT.mon" uib-btn-checkbox>Monday</label>
+					        <label class="btn btn-primary" ng-model="daysT.tue" uib-btn-checkbox>Tuesday</label>
+					        <label class="btn btn-primary" ng-model="daysT.wed" uib-btn-checkbox>Wednesday</label>
+					        <label class="btn btn-primary" ng-model="daysT.thu" uib-btn-checkbox>Thursday</label>
+					        <label class="btn btn-primary" ng-model="daysT.fri" uib-btn-checkbox>Friday</label>
+					        <label class="btn btn-primary" ng-model="daysT.sat" uib-btn-checkbox>Saturday</label>
+					    </div>
+					 </div>
+				</div>
+				
+				<div class="form-group">
+					<label for="rankingInput">Ranking</label> 
+					<div class="input-group">
+						<uib-rating ng-model="ranking" max="5" read-only="isReadonly"  id="rankingInput"></uib-rating>
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="box-footer">
+				<div class="col-xs-12">
+				<button type="button" class="btn btn-primary" uib-tooltip="disabled function">Save</button>
+				<button type="button" class="btn btn-danger" uib-tooltip="disabled function">Delete</button>
+				<a href="#/" class="btn btn-default" role="button">Cancel</a>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</section>

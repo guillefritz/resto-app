@@ -1,0 +1,112 @@
+<section class="content-header">
+	<h1>
+		Resto App <small>Menues</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="#/"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Menues</li>
+	</ol>
+</section>
+
+<section class="content">
+
+	<div class="row">
+
+		<div class="col-md-9">
+			<div class="box box-info">
+				<div class="box-header with-border">
+					<h3 class="box-title">Menues</h3>
+
+					<div class="box-tools">
+						<form class="ng-pristine ng-valid">
+							<div class="input-group input-group-sm" style="width: 150px;"></div>
+						</form>
+					</div>
+				</div>
+				<div class="box-body">
+					<div class="table-responsive">
+						<table class="table no-margin">
+							<thead>
+								<tr>
+									<th style="width: 10px">#</th>
+									<th>Name</th>
+									<th>Price</th>
+									<th>From</th>
+									<th>To</th>
+									<th>Ranking</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="menu in menues | filter: search | filter: dateRangeFilter(datesearch) | orderBy:'id'">
+									<td>{{menu.id}}</td>
+									<td><a href="#/detail/{{menu.id}}">{{menu.name}}</a></td>
+									<td>{{menu.price.currency}} {{menu.price.amount}}</td>
+									<td>{{menu.dateFrom}}</td>
+									<td>{{menu.dateTo}}</td>
+									<td>
+										<div class="progress progress-xs progress-striped active">
+					                      <div class="progress-bar progress-bar-success" style="width: {{100*menu.ranking/5}}%"></div>
+					                    </div>
+									</td>
+									<td>
+										<button type="button" class="btn btn-xs btn-primary" uib-tooltip="disabled function">Save</button>
+										<button type="button" class="btn btn-xs btn-danger" uib-tooltip="disabled function">Delete</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="box-footer clearfix">
+					<a href="" class="btn btn-sm btn-default btn-flat pull-left" uib-tooltip="disabled function">New Menu</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="box box-default">
+				<div class="box-header with-border">
+					<h3 class="box-title">Filters</h3>
+				</div>
+
+				<form role="form">
+					<div class="box-body">
+						<div class="form-group">
+							<div class="input-group">
+								<label for="nameInput">Name</label>
+								<input type="text" class="form-control" id="nameInput" ng-model="search.name">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group date">
+								<label>In Date Range</label>
+								<div class="input-group date">
+									<input type="text" class="form-control pull-left" id="datepicker" uib-datepicker-popup ng-model="datesearch" is-open="popup1.opened">
+									<div class="input-group-addon">
+										<a href="" ng-click="open1()">
+											<i class="fa fa-calendar"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<label for="priceCInput">Price Currency</label>
+								<input type="text" class="form-control" id="priceCInput" ng-model="search.price.currency">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<label for="priceInput">Price Amount</label>
+								<input type="text" class="form-control" id="priceInput" ng-model="search.price.amount">
+							</div>
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</section>
